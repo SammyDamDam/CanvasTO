@@ -153,6 +153,6 @@
         android:id="@+id/e5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="E5hehe" />
+        android:text="E5" />
 
 </GridLayout>
