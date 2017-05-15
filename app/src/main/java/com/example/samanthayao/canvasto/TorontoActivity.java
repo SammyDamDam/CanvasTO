@@ -72,10 +72,10 @@ public class TorontoActivity extends AppCompatActivity {
         mA3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu optionsA2 = new PopupMenu(TorontoActivity.this, mA2);
-                optionsA2.getMenuInflater().inflate(R.menu.popup_menu, optionsA2.getMenu());
+                PopupMenu optionsA3 = new PopupMenu(TorontoActivity.this, mA2);
+                optionsA3.getMenuInflater().inflate(R.menu.popup_menu, optionsA3.getMenu());
 
-                optionsA2.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                optionsA3.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         Toast.makeText(
                                 TorontoActivity.this,
@@ -85,7 +85,7 @@ public class TorontoActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-                optionsA2.show();
+                optionsA3.show();
             }
         });
     }
