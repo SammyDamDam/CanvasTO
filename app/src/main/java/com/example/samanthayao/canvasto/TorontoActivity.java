@@ -46,5 +46,26 @@ public class TorontoActivity extends AppCompatActivity {
                 options.show();
             }
         });
+
+        mA2 = (Button) findViewById(R.id.a1);
+        mA2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu options = new PopupMenu(TorontoActivity.this, mA2);
+                options.getMenuInflater().inflate(R.menu.popup_menu, options.getMenu());
+
+                options.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(
+                                TorontoActivity.this,
+                                "You Clicked : " + item.getTitle(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                        return true;
+                    }
+                });
+                options.show();
+            }
+        });
     }
 }
