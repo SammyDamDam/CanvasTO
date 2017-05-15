@@ -30,10 +30,10 @@ public class TorontoActivity extends AppCompatActivity {
         mA1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu options = new PopupMenu(TorontoActivity.this, mA1);
-                options.getMenuInflater().inflate(R.menu.popup_menu, options.getMenu());
+                PopupMenu optionsA1 = new PopupMenu(TorontoActivity.this, mA1);
+                optionsA1.getMenuInflater().inflate(R.menu.popup_menu, optionsA1.getMenu());
 
-                options.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                optionsA1.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         Toast.makeText(
                                 TorontoActivity.this,
@@ -43,18 +43,18 @@ public class TorontoActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-                options.show();
+                optionsA1.show();
             }
         });
 
-        mA2 = (Button) findViewById(R.id.a1);
+        mA2 = (Button) findViewById(R.id.a2);
         mA2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu options = new PopupMenu(TorontoActivity.this, mA2);
-                options.getMenuInflater().inflate(R.menu.popup_menu, options.getMenu());
+                PopupMenu optionsA2 = new PopupMenu(TorontoActivity.this, mA2);
+                optionsA2.getMenuInflater().inflate(R.menu.popup_menu, optionsA2.getMenu());
 
-                options.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                optionsA2.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         Toast.makeText(
                                 TorontoActivity.this,
@@ -64,7 +64,7 @@ public class TorontoActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-                options.show();
+                optionsA2.show();
             }
         });
     }

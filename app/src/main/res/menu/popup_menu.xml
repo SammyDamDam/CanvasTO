@@ -6,7 +6,7 @@
         android:title="Build" />
     <item
         android:id="@+id/manageBtn"
-        android:title="Item" />
+        android:title="Manage" />
     <item
         android:id="@+id/sellBtn"
         android:title="Sell"/>
