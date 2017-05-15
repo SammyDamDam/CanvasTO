@@ -5,8 +5,10 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Created by Samantha Yao on 5/10/2017.
@@ -24,11 +26,25 @@ public class TorontoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toronto);
 
-        public void showPopup(View v) {
-            PopupMenu popup = new PopupMenu(this, v);
-            MenuInflater inflater = popup.getMenuInflater();
-            inflater.inflate(R.menu.actions, popup.getMenu());
-            popup.show();
-        }
+        mA1 = (Button) findViewById(R.id.a1);
+        mA1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu options = new PopupMenu(TorontoActivity.this, mA1);
+                options.getMenuInflater().inflate(R.menu.popup_menu, options.getMenu());
+
+                options.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(
+                                TorontoActivity.this,
+                                "You Clicked : " + item.getTitle(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                        return true;
+                    }
+                });
+                options.show();
+            }
+        });
     }
 }
