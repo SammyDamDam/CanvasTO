@@ -7,8 +7,14 @@ import android.support.v7.widget.PopupMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Samantha Yao on 5/10/2017.
@@ -16,21 +22,34 @@ import android.widget.Toast;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    Button mA1,mA2,mA3,mA4,mA5;
-    Button mB1,mB2,mB3,mB4,mB5;
-    Button mC1,mC2,mC3,mC4,mC5;
-    Button mD1,mD2,mD3,mD4,mD5;
-    Button mE1,mE2,mE3,mE4,mE5;
+    Button mmenuBtn;
+    GridView gv;
+    String[] plots = new String[]{
+            "A1","A2","A3","A4","A5","B1","B2","B3","B4","B5",
+            "C1","C2","C3","C4","C5","D1","D2","D3","D4","D5",
+            "E1","E2","E3","E4","E5"
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toronto);
 
-        mA1 = (Button) findViewById(R.id.a1);
-        mA1.setOnClickListener(new View.OnClickListener() {
+        gv = (GridView) findViewById(R.id.gv);
+
+        final List<String> landPlots = new ArrayList<String>(Arrays.asList(plots));
+
+        // Create a new ArrayAdapter
+        final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
+                (this,android.R.layout.simple_list_item_1, landPlots);
+
+        // Data bind GridView with ArrayAdapter (String Array elements)
+        gv.setAdapter(gridViewArrayAdapter);
+
+        mmenuBtn = (Button) findViewById(R.id.menuBtn);
+        mmenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu optionsA1 = new PopupMenu(TorontoActivity.this, mA1);
+                PopupMenu optionsA1 = new PopupMenu(TorontoActivity.this, mmenuBtn);
                 optionsA1.getMenuInflater().inflate(R.menu.popup_menu, optionsA1.getMenu());
 
                 optionsA1.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

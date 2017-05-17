@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".TorontoActivity"
+    android:background="#71c6ab"
+    >
+    <Button
+        android:id="@+id/menuBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
-        <GridView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="5"
-            android:rowCount="5"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/profitLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/money" />
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
-
+        android:text="Menu"
+        />
+    <GridView
+        android:id="@+id/gv"
+        android:layout_width="675dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:numColumns="5"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp"
+        android:gravity="left"
+        android:layout_below="@id/menuBtn"
+        >
+    </GridView>
+</RelativeLayout>
