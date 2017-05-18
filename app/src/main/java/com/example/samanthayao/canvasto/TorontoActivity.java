@@ -17,6 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Samantha Yao on 5/10/2017.
@@ -24,6 +26,8 @@ import java.util.List;
 
 public class TorontoActivity extends AppCompatActivity {
 
+    Timer moneyTimer;
+    TimerTask updateMoneyTimer;
     GridView gv;
     String[] plots = new String[]{
             "A1","A2","A3","A4","A5","B1","B2","B3","B4","B5",
