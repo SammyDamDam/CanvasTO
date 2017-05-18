@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -22,7 +24,6 @@ import java.util.List;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    Button mmenuBtn;
     GridView gv;
     String[] plots = new String[]{
             "A1","A2","A3","A4","A5","B1","B2","B3","B4","B5",
@@ -45,11 +46,10 @@ public class TorontoActivity extends AppCompatActivity {
         // Data bind GridView with ArrayAdapter (String Array elements)
         gv.setAdapter(gridViewArrayAdapter);
 
-        mmenuBtn = (Button) findViewById(R.id.menuBtn);
-        mmenuBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu optionsA1 = new PopupMenu(TorontoActivity.this, mmenuBtn);
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                PopupMenu optionsA1 = new PopupMenu(TorontoActivity.this, v);
                 optionsA1.getMenuInflater().inflate(R.menu.popup_menu, optionsA1.getMenu());
 
                 optionsA1.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
