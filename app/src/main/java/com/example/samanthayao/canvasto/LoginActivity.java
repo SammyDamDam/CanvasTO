@@ -30,8 +30,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.samanthayao.canvasto.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

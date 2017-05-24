@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,16 +27,19 @@ import java.util.TimerTask;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    Timer moneyTimer;
-    TimerTask updateMoneyTimer;
+    Timer treasuryTimer;
+    TimerTask updateTreasuryTimer;
+    int treasury;
+    TextView mtreasuryValue;
     GridView gv;
     String[] plots = new String[]{
-            "A1","A2","A3","A4","A5","B1","B2","B3","B4"//,"B5",
+            "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4"//,"B5",
             //"C1","C2","C3","C4","C5","D1","D2","D3","D4","D5",
             //"E1","E2","E3","E4","E5"
     };
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toronto);
 
@@ -45,7 +49,7 @@ public class TorontoActivity extends AppCompatActivity {
 
         // Create a new ArrayAdapter
         final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
-                (this,android.R.layout.simple_list_item_1, landPlots);
+                (this, android.R.layout.simple_list_item_1, landPlots);
 
         // Data bind GridView with ArrayAdapter (String Array elements)
         gv.setAdapter(gridViewArrayAdapter);
@@ -70,67 +74,18 @@ public class TorontoActivity extends AppCompatActivity {
             }
         });
 
+        mtreasuryValue = (TextView) findViewById(R.id.treasuryValue);
+        treasury= 0;
+        updateTreasuryTimer = new TimerTask(){
+            @Override
+            public void run(){
+                treasury += 1000;
+
+                mtreasuryValue
+            }
+        };
+        treasuryTimer.schedule(updateTreasuryTimer,0,10000);
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
