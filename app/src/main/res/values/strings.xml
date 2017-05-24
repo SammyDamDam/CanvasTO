@@ -15,4 +15,6 @@
     </string>
     <string name="treasury">0</string>
     <string name="population">0</string>
+    <string name="treasuryLabel"><b>Treasury:</b>$</string>
+    <string name="populationLabel"><b>Population:</b></string>
 </resources>

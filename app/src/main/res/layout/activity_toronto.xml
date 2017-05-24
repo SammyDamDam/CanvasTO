@@ -9,60 +9,6 @@
     android:background="#71c6ab"
     >
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/treasuryLayout">
-
-            <TextView
-                android:id="@+id/treasuryLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Treasury: $"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/treasuryValue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/treasury"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="166dp"
-            android:id="@+id/populationLayout"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/populationLabel"
-                android:layout_width="match_parent"
-                android:layout_height="164dp"
-                android:text="Population"
-                android:layout_weight="1"
-                android:layout_marginBottom="22dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/populationValue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/population"
-                android:layout_alignBottom="@+id/populationLabel"
-                android:layout_marginBottom="49dp" />
-        </LinearLayout>
-    </LinearLayout>
-
     <GridView
         android:id="@+id/gv"
         android:layout_width="match_parent"
@@ -76,5 +22,58 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"></GridView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gv"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/populationLayout"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/populationLabel"
+                android:layout_width="77dp"
+                android:layout_height="31dp"
+                android:text="@string/populationLabel"
+                android:layout_marginBottom="22dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/populationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/population"
+                android:layout_alignBottom="@+id/populationLabel"
+                android:layout_marginBottom="49dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/treasuryLayout">
+
+            <TextView
+                android:id="@+id/treasuryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/treasuryLabel" />
+
+            <TextView
+                android:id="@+id/treasuryValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/treasury"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

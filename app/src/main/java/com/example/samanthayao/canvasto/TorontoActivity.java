@@ -81,7 +81,7 @@ public class TorontoActivity extends AppCompatActivity {
             public void run(){
                 treasury += 1000;
 
-                mtreasuryValue
+                mtreasuryValue.setText(treasury);
             }
         };
         treasuryTimer.schedule(updateTreasuryTimer,0,10000);
