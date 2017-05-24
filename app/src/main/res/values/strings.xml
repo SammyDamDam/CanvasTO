@@ -13,5 +13,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="treasury">"$0</string>
+    <string name="treasury">$0</string>
+    <string name="population">0</string>
 </resources>
