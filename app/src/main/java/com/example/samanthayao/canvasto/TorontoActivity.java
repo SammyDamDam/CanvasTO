@@ -1,5 +1,6 @@
 package com.example.samanthayao.canvasto;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.samanthayao.canvasto.R.id.buildBtn;
+import static com.example.samanthayao.canvasto.R.id.manageBtn;
+
 /**
  * Created by Samantha Yao on 5/10/2017.
  */
@@ -33,10 +37,11 @@ public class TorontoActivity extends AppCompatActivity {
     TextView mtreasuryValue;
     GridView gv;
     String[] plots = new String[]{
-            "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4","B5",
-            "C1","C2","C3","C4","C5","D1","D2","D3","D4","D5",
-            "E1","E2","E3","E4","E5"
+            "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4", "B5",
+            "C1", "C2", "C3", "C4", "C5", "D1", "D2", "D3", "D4", "D5",
+            "E1", "E2", "E3", "E4", "E5"
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,34 +62,31 @@ public class TorontoActivity extends AppCompatActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                PopupMenu optionsA1 = new PopupMenu(TorontoActivity.this, v);
-                optionsA1.getMenuInflater().inflate(R.menu.popup_menu, optionsA1.getMenu());
+                PopupMenu options = new PopupMenu(TorontoActivity.this, v);
+                options.getMenuInflater().inflate(R.menu.popup_menu, options.getMenu());
 
-                optionsA1.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                options.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(
-                                TorontoActivity.this,
-                                "You Clicked : " + item.getTitle(),
-                                Toast.LENGTH_SHORT
-                        ).show();
+                        switch (item.getItemId()) {
+                            case buildBtn:
+                                Intent buildIntent = new Intent(TorontoActivity.this, BuildActivity.class);
+                                TorontoActivity.this.startActivity(buildIntent);
+                                break;
+                            case manageBtn:
+                                Toast.makeText(TorontoActivity.this, "manage", Toast.LENGTH_LONG);
+                                break;
+                            default:
+                                Toast.makeText(TorontoActivity.this, "sell", Toast.LENGTH_LONG);
+                                break;
+                        }
                         return true;
                     }
+
+                    ;
                 });
-                optionsA1.show();
+                options.show();
             }
         });
-
-        mtreasuryValue = (TextView) findViewById(R.id.treasuryValue);
-        treasury= 0;
-        /*updateTreasuryTimer = new TimerTask(){
-            @Override
-            public void run(){
-                treasury += 1000;
-
-                mtreasuryValue.setText(treasury);
-            }
-        };
-        treasuryTimer.schedule(updateTreasuryTimer,0,10000);*/
 
     }
 }
