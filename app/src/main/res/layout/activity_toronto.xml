@@ -48,11 +48,11 @@
 
             <TextView
                 android:id="@+id/populationValue"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/population"
-                android:layout_alignBottom="@+id/populationLabel"
-                android:layout_marginBottom="49dp" />
+                android:layout_weight="1"
+                android:text="@string/population" />
+
         </LinearLayout>
 
         <LinearLayout
