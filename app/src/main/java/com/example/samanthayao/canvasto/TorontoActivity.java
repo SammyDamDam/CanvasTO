@@ -33,9 +33,9 @@ public class TorontoActivity extends AppCompatActivity {
     TextView mtreasuryValue;
     GridView gv;
     String[] plots = new String[]{
-            "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4"//,"B5",
-            //"C1","C2","C3","C4","C5","D1","D2","D3","D4","D5",
-            //"E1","E2","E3","E4","E5"
+            "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4","B5",
+            "C1","C2","C3","C4","C5","D1","D2","D3","D4","D5",
+            "E1","E2","E3","E4","E5"
     };
 
     @Override
@@ -76,7 +76,7 @@ public class TorontoActivity extends AppCompatActivity {
 
         mtreasuryValue = (TextView) findViewById(R.id.treasuryValue);
         treasury= 0;
-        updateTreasuryTimer = new TimerTask(){
+        /*updateTreasuryTimer = new TimerTask(){
             @Override
             public void run(){
                 treasury += 1000;
@@ -84,7 +84,7 @@ public class TorontoActivity extends AppCompatActivity {
                 mtreasuryValue.setText(treasury);
             }
         };
-        treasuryTimer.schedule(updateTreasuryTimer,0,10000);
+        treasuryTimer.schedule(updateTreasuryTimer,0,10000);*/
 
     }
 }

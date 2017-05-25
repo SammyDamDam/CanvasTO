@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:gravity="left"
         android:horizontalSpacing="5dp"
-        android:numColumns="3"
+        android:numColumns="5"
         android:padding="5dp"
         android:verticalSpacing="5dp"
         android:layout_alignParentTop="true"
@@ -39,9 +39,10 @@
 
             <TextView
                 android:id="@+id/populationLabel"
-                android:layout_width="77dp"
+                android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:text="@string/populationLabel"
+                android:textSize="20dp"
                 android:layout_marginBottom="22dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true" />
@@ -51,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="20dp"
                 android:text="@string/population" />
 
         </LinearLayout>
@@ -65,6 +67,7 @@
                 android:id="@+id/treasuryLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="20dp"
                 android:text="@string/treasuryLabel" />
 
             <TextView
@@ -72,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/treasury"
+                android:textSize="20dp"
                 android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>

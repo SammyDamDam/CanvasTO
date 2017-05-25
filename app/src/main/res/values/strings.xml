@@ -17,4 +17,7 @@
     <string name="population">0</string>
     <string name="treasuryLabel"><b>Treasury:</b>$</string>
     <string name="populationLabel"><b>Population:</b></string>
+    <string name="title_activity_build">BuildActivity</string>
+    <string name="residentialBtn">Residential</string>
+    <string name="educationBtn">Education</string>
 </resources>
