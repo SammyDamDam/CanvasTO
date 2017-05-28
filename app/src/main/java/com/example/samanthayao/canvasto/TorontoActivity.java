@@ -1,6 +1,9 @@
 package com.example.samanthayao.canvasto;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -35,12 +38,11 @@ public class TorontoActivity extends AppCompatActivity {
     TimerTask updateTreasuryTimer;
     int treasury;
     TextView mtreasuryValue;
-    GridView gv;
-    String[] plots = new String[]{
-            "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4", "B5",
-            "C1", "C2", "C3", "C4", "C5", "D1", "D2", "D3", "D4", "D5",
-            "E1", "E2", "E3", "E4", "E5"
-    };
+    private GridView gv;
+    private GridViewAdapter gridAdapter;
+    int[] imageIDs={R.drawable.grass};
+    String[] web = {"grass"};
+
 
 
     @Override
@@ -49,15 +51,8 @@ public class TorontoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toronto);
 
         gv = (GridView) findViewById(R.id.gv);
-
-        final List<String> landPlots = new ArrayList<String>(Arrays.asList(plots));
-
-        // Create a new ArrayAdapter
-        final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_1, landPlots);
-
-        // Data bind GridView with ArrayAdapter (String Array elements)
-        gv.setAdapter(gridViewArrayAdapter);
+        gridAdapter = new GridViewAdapter(TorontoActivity.this,web,imageIDs);
+        gv.setAdapter(gridAdapter);
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -89,5 +84,6 @@ public class TorontoActivity extends AppCompatActivity {
         });
 
     }
+
 }
 

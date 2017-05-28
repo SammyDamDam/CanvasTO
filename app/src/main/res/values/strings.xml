@@ -20,4 +20,8 @@
     <string name="title_activity_build">BuildActivity</string>
     <string name="residentialBtn">Residential</string>
     <string name="educationBtn">Education</string>
+
+    <string-array name="image_ids">
+        <item>@drawable/grass</item>
+    </string-array>
 </resources>

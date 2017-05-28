@@ -2,56 +2,66 @@ package com.example.samanthayao.canvasto;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 /**
  * Created by Samantha Yao on 5/25/2017.
  */
 
-public class GridViewAdapter extends ArrayAdapter {
-    private Context context;
-    private int layoutResourceId;
-    private ArrayList data = new ArrayList();
+public class GridViewAdapter extends BaseAdapter{
+    private Context mContext;
+    private final String[] web;
+    private final int[] Imageid;
 
-    public GridViewAdapter(Context context, int layoutResourceId, ArrayList data) {
-        super(context, layoutResourceId, data);
-        this.layoutResourceId = layoutResourceId;
-        this.context = context;
-        this.data = data;
+    public GridViewAdapter(Context c,String[] web,int[] Imageid ) {
+        mContext = c;
+        this.Imageid = Imageid;
+        this.web = web;
+    }
+
+    @Override
+    public int getCount() {
+        // TODO Auto-generated method stub
+        return web.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
-        ViewHolder holder = null;
+        // TODO Auto-generated method stub
+        View grid;
+        LayoutInflater inflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if (row == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            row = inflater.inflate(layoutResourceId, parent, false);
-            holder = new ViewHolder();
-            holder.imageTitle = (TextView) row.findViewById(R.id.text);
-            holder.image = (ImageView) row.findViewById(R.id.image);
-            row.setTag(holder);
+        if (convertView == null) {
+
+            grid = new View(mContext);
+            grid = inflater.inflate(R.layout.grid_item_layout, null);
+            TextView textView = (TextView) grid.findViewById(R.id.grid_text);
+            ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
+            textView.setText(web[position]);
+            imageView.setImageResource(Imageid[position]);
         } else {
-            holder = (ViewHolder) row.getTag();
+            grid = (View) convertView;
         }
 
-        ImageItem item = (ImageItem) data.get(position);
-        holder.imageTitle.setText(item.getTitle());
-        holder.image.setImageBitmap(item.getImage());
-        return row;
-    }
-
-    static class ViewHolder {
-        TextView imageTitle;
-        ImageView image;
+        return grid;
     }
 }
