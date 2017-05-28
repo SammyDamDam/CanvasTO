@@ -3,10 +3,10 @@ package com.example.samanthayao.canvasto;
 import android.graphics.Bitmap;
 
 /**
- * Created by Samantha Yao on 5/26/2017.
+ * Created by Samantha Yao on 5/27/2017.
  */
 
-class ImageItem {
+public class ImageItem {
     private Bitmap image;
     private String title;
 
@@ -32,4 +32,3 @@ class ImageItem {
         this.title = title;
     }
 }
-

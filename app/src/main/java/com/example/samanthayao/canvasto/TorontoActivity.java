@@ -40,10 +40,9 @@ public class TorontoActivity extends AppCompatActivity {
     TextView mtreasuryValue;
     private GridView gv;
     private GridViewAdapter gridAdapter;
-    int[] imageIDs={R.drawable.grass};
-    String[] web = {"grass"};
-
-
+    int[] imageIDs = {
+            R.drawable.grass,
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +50,7 @@ public class TorontoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toronto);
 
         gv = (GridView) findViewById(R.id.gv);
-        gridAdapter = new GridViewAdapter(TorontoActivity.this,web,imageIDs);
-        gv.setAdapter(gridAdapter);
+        gv.setAdapter(new GridViewAdapter(this,imageIDs));
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -84,6 +82,7 @@ public class TorontoActivity extends AppCompatActivity {
         });
 
     }
-
 }
+
+
 

@@ -5,10 +5,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Samantha Yao on 5/25/2017.
@@ -16,52 +19,37 @@ import android.widget.TextView;
 
 public class GridViewAdapter extends BaseAdapter{
     private Context mContext;
-    private final String[] web;
-    private final int[] Imageid;
+    private int[] mimageIDs;
 
-    public GridViewAdapter(Context c,String[] web,int[] Imageid ) {
+    public GridViewAdapter(Context c, int[] imageIDs) {
         mContext = c;
-        this.Imageid = Imageid;
-        this.web = web;
+        mimageIDs = imageIDs;
     }
 
-    @Override
     public int getCount() {
-        // TODO Auto-generated method stub
-        return web.length;
+        return mimageIDs.length;
     }
 
-    @Override
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
         return null;
     }
 
-    @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
         return 0;
     }
 
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
-        View grid;
-        LayoutInflater inflater = (LayoutInflater) mContext
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ImageView mImageView;
 
         if (convertView == null) {
-
-            grid = new View(mContext);
-            grid = inflater.inflate(R.layout.grid_item_layout, null);
-            TextView textView = (TextView) grid.findViewById(R.id.grid_text);
-            ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
-            textView.setText(web[position]);
-            imageView.setImageResource(Imageid[position]);
+            mImageView = new ImageView(mContext);
+            mImageView.setLayoutParams(new GridView.LayoutParams(130, 130));
+            mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            mImageView.setPadding(16, 16, 16, 16);
         } else {
-            grid = (View) convertView;
+            mImageView = (ImageView) convertView;
         }
-
-        return grid;
+        mImageView.setImageResource(mimageIDs[position]);
+        return mImageView;
     }
 }
