@@ -6,8 +6,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,20 +36,40 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    Timer treasuryTimer;
-    TimerTask updateTreasuryTimer;
-    int treasury;
+    int treasury = 0;
     TextView mtreasuryValue;
     private GridView gv;
-    private GridViewAdapter gridAdapter;
+    Handler handler;
+
     int[] imageIDs = {
-            R.drawable.grass,
+            R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
+            R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
+            R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
+            R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
+            R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toronto);
+
+        handler = new Handler();
+        mtreasuryValue = (TextView) findViewById(R.id.treasuryValue);
+
+        Runnable updateTreasury = new Runnable(){
+            @Override
+            public void run()
+            {
+                treasury++;
+                mtreasuryValue.setText(String.valueOf(treasury));
+                handler.postDelayed(this,2000);  // Run this again in 1 second
+                // (i.e. we create an infinite loop that
+                // executes every second)
+            }
+        };
+
+        handler.postDelayed(updateTreasury,2000);
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
@@ -80,9 +102,10 @@ public class TorontoActivity extends AppCompatActivity {
                 options.show();
             }
         });
-
     }
 }
+
+
 
 
 

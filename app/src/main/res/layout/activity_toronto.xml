@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20dp"
-                android:text="@string/population" />
+                android:text="1000" />
 
         </LinearLayout>
 
@@ -70,7 +70,7 @@
                 android:id="@+id/treasuryValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/treasury"
+                android:text="0"
                 android:textSize="20dp"
                 android:layout_weight="1" />
         </LinearLayout>
