@@ -41,6 +41,7 @@ public class TorontoActivity extends AppCompatActivity {
     private GridView gv;
     Handler handler;
 
+    //List of the images to put into the GridView
     int[] imageIDs = {
             R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
             R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
@@ -54,6 +55,7 @@ public class TorontoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toronto);
 
+        //creating a Handler that runs every 2 seconds to update things e.g. treasury, population
         handler = new Handler();
         mtreasuryValue = (TextView) findViewById(R.id.treasuryValue);
 
@@ -61,19 +63,19 @@ public class TorontoActivity extends AppCompatActivity {
             @Override
             public void run()
             {
+                //TODO insert what to do every 2 seconds
                 treasury++;
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,2000);  // Run this again in 1 second
-                // (i.e. we create an infinite loop that
-                // executes every second)
+                handler.postDelayed(this,2000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,2000);
+        handler.postDelayed(updateTreasury,2000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
 
+        //TODO code what happens when items on the GridView are clicked
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -84,6 +86,7 @@ public class TorontoActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case buildBtn:
+                                //Opens BuildActivity when the Build option is clicked
                                 Intent buildIntent = new Intent(TorontoActivity.this, BuildActivity.class);
                                 TorontoActivity.this.startActivity(buildIntent);
                                 break;

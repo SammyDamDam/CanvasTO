@@ -335,6 +335,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 finish();
+                //TODO Insert here what to do when user logs in
                 Intent intent = new Intent(LoginActivity.this,TorontoActivity.class);
                 LoginActivity.this.startActivity(intent);
             } else {
