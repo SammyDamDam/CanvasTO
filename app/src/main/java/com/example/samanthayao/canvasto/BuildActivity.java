@@ -8,10 +8,8 @@ import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.Toast;
-
-import static com.example.samanthayao.canvasto.R.id.buildBtn;
-import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 /**
  * Created by Samantha Yao on 5/25/2017.
@@ -19,42 +17,35 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 public class BuildActivity extends AppCompatActivity {
 
-    Button mresidentialBtn;
-    Button meducationBtn;
+    Button mresBtn;
+    Button meduBtn;
+    Button mgovBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build);
 
-        mresidentialBtn = (Button) findViewById(R.id.residentialBtn);
-        mresidentialBtn.setOnClickListener(new View.OnClickListener() {
+        mresBtn = (Button) findViewById(R.id.resBtn);
+        mresBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu options = new PopupMenu(BuildActivity.this, v);
-                options.getMenuInflater().inflate(R.menu.popup_menu, options.getMenu());
-
-                options.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case buildBtn:
-                                //insert stuff
-                                break;
-                            case manageBtn:
-                                Toast.makeText(TorontoActivity.this, "manage", Toast.LENGTH_LONG);
-                                break;
-                            default:
-                                Toast.makeText(TorontoActivity.this, "sell", Toast.LENGTH_LONG);
-                                break;
-                        }
-                        return true;
-                    }
-
-                    ;
-                });
-                options.show();
+                Intent resIntent = new Intent(BuildActivity.this, HousingActivity.class);
+                BuildActivity.this.startActivity(resIntent);
             }
         });
-        meducationBtn = (Button) findViewById(R.id.educationBtn);
+
+        meduBtn = (Button) findViewById(R.id.eduBtn);
+        meduBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent eduIntent = new Intent(BuildActivity.this, EducationActivity.class);
+                BuildActivity.this.startActivity(eduIntent);
+            }
+        });
+        mgovBtn = (Button) findViewById(R.id.govBtn);
+
+
 
     }
 }
