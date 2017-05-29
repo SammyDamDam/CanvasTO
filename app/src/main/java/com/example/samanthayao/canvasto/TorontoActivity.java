@@ -36,16 +36,21 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    int treasury = 0;
+    float treasury = (float) 0.0;
     TextView mtreasuryValue;
     private GridView gv;
     Handler handler;
+    int population = 1000;
+    float incomeTax = (float) 0.11;
+    float avgIncomePerDay = (float) 952/7;
+    TextView mpopulationValue;
+
 
     //List of the images to put into the GridView
     int[] imageIDs = {
             R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
             R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
-            R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
+            R.drawable.grass,R.drawable.grass,R.drawable.oldcityhall,R.drawable.grass,R.drawable.grass,
             R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
             R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,R.drawable.grass,
     };
@@ -58,19 +63,22 @@ public class TorontoActivity extends AppCompatActivity {
         //creating a Handler that runs every 2 seconds to update things e.g. treasury, population
         handler = new Handler();
         mtreasuryValue = (TextView) findViewById(R.id.treasuryValue);
+        mpopulationValue = (TextView) findViewById(R.id.populationValue);
 
         Runnable updateTreasury = new Runnable(){
             @Override
             public void run()
             {
-                //TODO insert what to do every 2 seconds
-                treasury++;
+                //TODO insert what to do every 5 seconds
+                population++;
+                treasury+=population*0.74*avgIncomePerDay*incomeTax;
+                mpopulationValue.setText(String.valueOf(population));
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,2000); //2000 milliseconds = 2 seconds, can be changed
+                handler.postDelayed(this,1000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,2000); //repeats Handler every 2 seconds
+        handler.postDelayed(updateTreasury,1000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
