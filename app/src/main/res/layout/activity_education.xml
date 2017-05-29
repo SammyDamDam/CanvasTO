@@ -111,7 +111,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/boardingTitle"
+                    android:id="@+id/boardingDescription"
                     android:layout_width="193dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
