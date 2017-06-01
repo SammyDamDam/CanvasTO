@@ -74,11 +74,11 @@ public class TorontoActivity extends AppCompatActivity {
                 treasury+=population*0.74*avgIncomePerDay*incomeTax;
                 mpopulationValue.setText(String.valueOf(population));
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,1000); //2000 milliseconds = 2 seconds, can be changed
+                handler.postDelayed(this,30000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,1000); //repeats Handler every 2 seconds
+        handler.postDelayed(updateTreasury,30000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
