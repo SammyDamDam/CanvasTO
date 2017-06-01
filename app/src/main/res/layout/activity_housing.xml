@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/detachedTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="Detached Housing"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="Description of a regular house here. Talk about the price, amount of people it will house per square feet and any other relevant piece of information."
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detachDescription"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:padding="5dp"/>
+
+                <ImageView
+                    android:id="@+id/detachImage"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="842.00"
+                    app:srcCompat="@drawable/detached_housing" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/purchaseDetached"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Purchase" />
+
+            <TextView
+                android:id="@+id/townhouseTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:text="Duplex/Triplex"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/townhouseDescription"
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Description of a regular house here. Talk about the price, amount of people it will house per square feet and any other relevant piece of information."
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/townhouseImage"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="842.00"
+                    app:srcCompat="@drawable/townhouse_housing" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/purchaseTownhouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Purchase" />
+
+            <TextView
+                android:id="@+id/semidetachedTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="Semi-Detached"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/semidetachedDescription"
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Description of a regular house here. Talk about the price, amount of people it will house per square feet and any other relevant piece of information."
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/semidetachedImage"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="842.00"
+                    app:srcCompat="@drawable/semi_detached_housing" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/purchaseSemiDetached"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Purchase" />
+
+            <TextView
+                android:id="@+id/condoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="High-Rise Condominium"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/condoDescription"
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Description of a regular house here. Talk about the price, amount of people it will house per square feet and any other relevant piece of information."
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/condoImage"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="842.00"
+                    app:srcCompat="@drawable/high_rise_condo_housing" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/purchaseCondo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Purchase" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

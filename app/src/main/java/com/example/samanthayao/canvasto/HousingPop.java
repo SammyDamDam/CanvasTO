@@ -1,13 +1,19 @@
 package com.example.samanthayao.canvasto;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-public class TTCActivity extends AppCompatActivity {
+/**
+ * Created by wenwi on 5/29/2017.
+ */
 
-    @Override
+public class HousingPop extends Activity{
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ttc);
+
+
+        }
+
     }
 }
