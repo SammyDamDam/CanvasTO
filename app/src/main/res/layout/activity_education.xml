@@ -42,7 +42,7 @@
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="842.00"
-                    app:srcCompat="@drawable/detached_housing" />
+                    app:srcCompat="@drawable/publicschool" />
 
             </LinearLayout>
 
@@ -83,7 +83,7 @@
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="842.00"
-                    app:srcCompat="@drawable/townhouse_housing" />
+                    app:srcCompat="@drawable/privateschool" />
 
 
             </LinearLayout>
@@ -124,7 +124,7 @@
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="842.00"
-                    app:srcCompat="@drawable/semi_detached_housing" />
+                    app:srcCompat="@drawable/boardingschool" />
 
             </LinearLayout>
 
@@ -136,12 +136,12 @@
                 android:text="Purchase" />
 
             <TextView
-                android:id="@+id/condoTitle"
+                android:id="@+id/universityTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="High-Rise Condominium"
+                android:text="University"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
@@ -151,12 +151,12 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/condoDescription"
+                    android:id="@+id/universityDescription"
                     android:layout_width="193dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Description of a regular house here. Talk about the price, amount of people it will house per square feet and any other relevant piece of information."
+                    android:text="Students can further their knowledge and research in university. Building universities will raise the average income. Requires a school first."
                     android:textSize="20sp" />
 
                 <ImageView
@@ -164,12 +164,12 @@
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:layout_weight="842.00"
-                    app:srcCompat="@drawable/high_rise_condo_housing" />
+                    app:srcCompat="@drawable/universityoftoronto" />
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/purchaseCondo"
+                android:id="@+id/purchaseUniversity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
