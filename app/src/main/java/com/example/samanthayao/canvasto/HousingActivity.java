@@ -32,7 +32,7 @@ public class HousingActivity extends AppCompatActivity{
                 startActivity(new Intent(HousingActivity.this, HousingPop.class));
 
             }
-        })
+        });
 
 
     }
