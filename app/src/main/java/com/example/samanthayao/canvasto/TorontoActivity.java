@@ -44,6 +44,7 @@ public class TorontoActivity extends AppCompatActivity {
     float incomeTax = (float) 0.11;
     float avgIncomePerDay = (float) 952/7;
     TextView mpopulationValue;
+    Button mjsonData;
 
 
     //List of the images to put into the GridView
@@ -111,6 +112,15 @@ public class TorontoActivity extends AppCompatActivity {
                     ;
                 });
                 options.show();
+            }
+        });
+
+        mjsonData = (Button) findViewById(R.id.jsonBtn);
+        mjsonData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TorontoActivity.this,JSONParser.class);
+                TorontoActivity.this.startActivity(intent);
             }
         });
     }
