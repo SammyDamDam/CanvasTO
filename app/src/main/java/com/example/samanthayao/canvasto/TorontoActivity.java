@@ -36,7 +36,7 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    float treasury = (float) 0.0;
+    float treasury = (float) 1000.0;
     TextView mtreasuryValue;
     private GridView gv;
     Handler handler;
@@ -114,6 +114,10 @@ public class TorontoActivity extends AppCompatActivity {
                 options.show();
             }
         });
+
+        Intent housingIntent = getIntent();
+        int priceChange = housingIntent.getIntExtra("price",0);
+        treasury -= priceChange;
 
         mjsonData = (Button) findViewById(R.id.jsonBtn);
         mjsonData.setOnClickListener(new View.OnClickListener() {

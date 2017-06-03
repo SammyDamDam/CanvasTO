@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".BuildActivity" />
         <activity android:name=".CalendarActivity" />
+        <activity android:name=".HousingActivity" />
+        <activity android:name=".EducationActivity" />
     </application>
 
 </manifest>

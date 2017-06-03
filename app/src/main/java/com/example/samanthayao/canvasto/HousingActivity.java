@@ -35,7 +35,9 @@ public class HousingActivity extends AppCompatActivity{
         mDetached.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(HousingActivity.this,TorontoActivity.class);
+                intent.putExtra("price",10000);
+                HousingActivity.this.startActivity(intent);
 
             }
         });
