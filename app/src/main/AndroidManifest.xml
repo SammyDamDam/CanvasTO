@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BuildActivity" />
-        <activity android:name=".JSONParser" />
+        <activity android:name=".CalendarActivity" />
     </application>
 
 </manifest>

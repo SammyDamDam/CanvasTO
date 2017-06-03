@@ -2,14 +2,7 @@ package com.example.samanthayao.canvasto;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +18,7 @@ public class JSONParser extends AppCompatActivity {
     public static String[] freeEvent;
     public static String[] eventName;
 
+    public static final String JSON_ARRAY = "";
     public static final String JSON_OBJECT = "calEvent";
     public static final String KEY_ORGTYPE= "orgType";
     public static final String KEY_STARTDATE = "startDate";
@@ -32,10 +26,9 @@ public class JSONParser extends AppCompatActivity {
     public static final String KEY_ENDDATE= "endDate";
     public static final String KEY_EVENTWEBSITE = "eventWebsite";
     public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY_FREEEVENT = "freeEvent";
     public static final String KEY_EVENTNAME = "eventName";
 
-    private JSONObject users = null;
+    private JSONObject info = null;
 
     private String json;
 
@@ -43,16 +36,25 @@ public class JSONParser extends AppCompatActivity {
         this.json = json;
     }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jsonparser);
-
+    protected void parseJSON() {
         JSONArray jsonArray = null;
         try{
             jsonArray = new JSONArray(json);
-            users = jsonArray.getJSONObject(Integer.parseInt(JSON_OBJECT));
+            info = jsonArray.getJSONObject(0);
+
+            orgType = new String[info.length()];
+            startDate = new String[info.length()];
+            orgAddress = new String[info.length()];
+            endDate = new String[info.length()];
+            eventWebsite = new String[info.length()];
+            description = new String[info.length()];
+            eventName = new String[info.length()];
+
+            for(int i=0;i<info.length();i++){
+                JSONObject jo = info.getJSONObject(JSON_OBJECT);
+                orgType[i] = jo.getString(KEY_ORGTYPE);
+
+            }
         }
         catch(JSONException e){
             e.printStackTrace();

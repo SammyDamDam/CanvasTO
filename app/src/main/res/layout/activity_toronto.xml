@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".TorontoActivity"
-    android:background="#71c6ab"
+    android:background="#87ceeb"
     >
 
     <GridView

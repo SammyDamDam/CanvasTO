@@ -119,7 +119,7 @@ public class TorontoActivity extends AppCompatActivity {
         mjsonData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TorontoActivity.this,JSONParser.class);
+                Intent intent = new Intent(TorontoActivity.this,CalendarActivity.class);
                 TorontoActivity.this.startActivity(intent);
             }
         });
