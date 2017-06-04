@@ -31,8 +31,12 @@
             android:theme="@style/AppTheme.CustomTheme">
         </activity>
         <activity android:name=".CalendarActivity" />
-        <activity android:name=".HousingActivity" />
-        <activity android:name=".EducationActivity"/>
+        <activity android:name=".HousingActivity"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
+        <activity android:name=".EducationActivity"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
     </application>
 
 </manifest>

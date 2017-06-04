@@ -32,8 +32,7 @@ public class BuildActivity extends AppCompatActivity {
         mresBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resIntent = new Intent(BuildActivity.this, HousingActivity.class);
-                BuildActivity.this.startActivity(resIntent);
+                startActivity(new Intent(BuildActivity.this, HousingActivity.class));
             }
         });
 
@@ -41,8 +40,7 @@ public class BuildActivity extends AppCompatActivity {
         meduBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent eduIntent = new Intent(BuildActivity.this, EducationActivity.class);
-                BuildActivity.this.startActivity(eduIntent);
+                startActivity(new Intent(BuildActivity.this, EducationActivity.class));
             }
         });
         mgovBtn = (Button) findViewById(R.id.govBtn);
