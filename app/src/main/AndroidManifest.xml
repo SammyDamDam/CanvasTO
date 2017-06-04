@@ -27,8 +27,8 @@
         <activity android:name=".TorontoActivity" >
 
         </activity>
-        <activity android:name=".BuildActivity">
-            android:theme="@style/AppTheme.CustomTheme"
+        <activity android:name=".BuildActivity"
+            android:theme="@style/AppTheme.CustomTheme">
         </activity>
         <activity android:name=".CalendarActivity" />
         <activity android:name=".HousingActivity" />
