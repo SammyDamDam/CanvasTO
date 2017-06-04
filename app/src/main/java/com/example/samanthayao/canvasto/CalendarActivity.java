@@ -64,9 +64,11 @@ public class CalendarActivity extends AppCompatActivity{
                         try {
                             //TODO retrieve stuff from the JSON file
                             // Retrieves first JSON object in outer array
-                            JSONObject calEvent = response.getJSONObject(0);
+                            JSONObject event = response.getJSONObject(0);
 
-                            JSONObject orgType = calEvent.getJSONObject("startDate");
+                            JSONObject calEvent = event.getJSONObject("calEvent");
+
+                            String orgType = calEvent.getString("startDate");
 
                             // Adds the data string to the TextView "results"
                             data += "orgType" + orgType;
