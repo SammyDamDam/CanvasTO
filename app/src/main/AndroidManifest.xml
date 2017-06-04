@@ -27,10 +27,12 @@
         <activity android:name=".TorontoActivity" >
 
         </activity>
-        <activity android:name=".BuildActivity" />
+        <activity android:name=".BuildActivity">
+            android:theme="@style/AppTheme.CustomTheme"
+        </activity>
         <activity android:name=".CalendarActivity" />
         <activity android:name=".HousingActivity" />
-        <activity android:name=".EducationActivity" />
+        <activity android:name=".EducationActivity"/>
     </application>
 
 </manifest>

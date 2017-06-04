@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/build_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What type of building?"
+        android:textAlignment="center"
+        android:paddingBottom="75px"
+        android:textSize="26sp"/>
+
+    <Button
+        android:id="@+id/resBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Residential" />
+
+    <Button
+        android:id="@+id/eduBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Educational" />
+
+    <Button
+        android:id="@+id/govBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Government" />
+
+    <Button
+        android:id="@+id/comBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Community" />
+
+</LinearLayout>
