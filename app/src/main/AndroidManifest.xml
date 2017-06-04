@@ -16,15 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"/>
-        <activity
-            android:name=".TTCActivity"/>
-
-        <activity android:name=".TorontoActivity" >
+            android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".TTCActivity"/>
+
+        <activity android:name=".TorontoActivity" >
+
         </activity>
         <activity android:name=".BuildActivity" />
         <activity android:name=".CalendarActivity" />

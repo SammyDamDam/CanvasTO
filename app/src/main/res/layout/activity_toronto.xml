@@ -86,7 +86,7 @@
             android:id="@+id/jsonBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="JSON Data" />
+            android:text="Calendar" />
 
     </LinearLayout>
 
