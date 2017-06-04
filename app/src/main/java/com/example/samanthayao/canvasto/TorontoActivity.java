@@ -96,8 +96,27 @@ public class TorontoActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case buildBtn:
                                 //Opens BuildActivity when the Build option is clicked
-                                Intent buildIntent = new Intent(TorontoActivity.this, BuildActivity.class);
-                                TorontoActivity.this.startActivity(buildIntent);
+                                PopupMenu buildOptions = new PopupMenu(TorontoActivity.this, View v1);
+                                buildOptions.getMenuInflater().inflate(R.menu.build_popup, buildOptions.getMenu());
+
+                                buildOptions.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                    public boolean onMenuItemClick(MenuItem item) {
+                                        switch (item.getItemId()) {
+                                            case resOption:
+                                                //Opens BuildActivity when the Build option is clicked
+                                                Intent buildIntent = new Intent(TorontoActivity.this, BuildActivity.class);
+                                                TorontoActivity.this.startActivity(buildIntent);
+                                                break;
+                                            default:
+                                                Toast.makeText(TorontoActivity.this, "sell", Toast.LENGTH_LONG);
+                                                break;
+                                        }
+                                        return true;
+                                    }
+
+                                    ;
+                                });
+                                buildOptions.show();
                                 break;
                             case manageBtn:
                                 Toast.makeText(TorontoActivity.this, "manage", Toast.LENGTH_LONG);
