@@ -26,7 +26,7 @@ public class BuildActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*setContentView(R.layout.activity_build);
+        setContentView(R.layout.activity_build);
 
         mresBtn = (Button) findViewById(R.id.resBtn);
         mresBtn.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +45,7 @@ public class BuildActivity extends AppCompatActivity {
                 BuildActivity.this.startActivity(eduIntent);
             }
         });
-        mgovBtn = (Button) findViewById(R.id.govBtn);*/
+        mgovBtn = (Button) findViewById(R.id.govBtn);
 
         mComBtn = (Button) findViewById(R.id.comBtn);
 

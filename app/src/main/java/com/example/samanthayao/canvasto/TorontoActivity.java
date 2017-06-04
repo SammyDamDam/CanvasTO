@@ -96,14 +96,11 @@ public class TorontoActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case buildBtn:
                                 //Opens BuildActivity when the Build option is clicked
-<<<<<<< Updated upstream
-=======
                                 startActivity(new Intent(TorontoActivity.this,BuildActivity.class));
->>>>>>> Stashed changes
                                 break;
                             case manageBtn:
                                 //ManageActivity has not been created yet
-                                Toast.makeText(TorontoActivity.this,ManageActivity.class));
+                                //Toast.makeText(TorontoActivity.this,ManageActivity.class));
                                 break;
                             default:
                                 //idk how to implement the sell stuff

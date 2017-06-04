@@ -32,6 +32,7 @@ import java.util.ArrayList;
 
 public class CalendarActivity extends AppCompatActivity{
 
+    ListView mcalendarList;
     // Will show the string "data" that holds the results
     TextView results;
     // URL of object to be parsed
@@ -49,7 +50,7 @@ public class CalendarActivity extends AppCompatActivity{
         requestQueue = Volley.newRequestQueue(this);
 
         // Casts results into the TextView found within the main layout XML with id jsonData
-        results = (TextView) findViewById(R.id.jsonData);
+        mcalendarList = (ListView) findViewById(R.id.calendarList);
 
         // Creating the JsonArrayRequest class called arrayreq, passing the required parameters
         //JsonURL is the URL to be fetched from
@@ -62,13 +63,15 @@ public class CalendarActivity extends AppCompatActivity{
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
+                            String[] listItem = new String[0];
                             //TODO retrieve stuff from the JSON file
                             // Retrieves first JSON object in outer array
                             JSONObject event = response.getJSONObject(0);
-
                             JSONObject calEvent = event.getJSONObject("calEvent");
 
-                            String orgType = calEvent.getString("startDate");
+                            String orgType = calEvent.getString("orgType");
+                            String startDate = calEvent.getString("startDate");
+                            String orgAddress = calEvent.getString("orgAddress");
 
                             // Adds the data string to the TextView "results"
                             data += "orgType" + orgType;
