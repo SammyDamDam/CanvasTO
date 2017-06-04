@@ -3,8 +3,10 @@ package com.example.samanthayao.canvasto;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,6 +53,7 @@ public class CalendarActivity extends AppCompatActivity{
 
         // Casts results into the TextView found within the main layout XML with id jsonData
         mcalendarList = (ListView) findViewById(R.id.calendarList);
+        final TextView textView = (TextView) findViewById(R.id.textView2);
 
         // Creating the JsonArrayRequest class called arrayreq, passing the required parameters
         //JsonURL is the URL to be fetched from
@@ -63,19 +66,29 @@ public class CalendarActivity extends AppCompatActivity{
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            String[] listItem = new String[0];
+                            String[] data = new String[response.length()];
                             //TODO retrieve stuff from the JSON file
                             // Retrieves first JSON object in outer array
-                            JSONObject event = response.getJSONObject(0);
-                            JSONObject calEvent = event.getJSONObject("calEvent");
+                            for (int i = 0;i<response.length();i++){
+                                JSONObject event = response.getJSONObject(i);
+                                JSONObject calEvent = event.getJSONObject("calEvent");
 
-                            String orgType = calEvent.getString("orgType");
-                            String startDate = calEvent.getString("startDate");
-                            String orgAddress = calEvent.getString("orgAddress");
+                                String eventName = calEvent.getString("eventName");
+                                data[i] = eventName;
+                                textView.setText(eventName);
+                            }
+
+                            //String startDate = calEvent.getString("startDate");
+                            //String orgAddress = calEvent.getString("orgAddress");
 
                             // Adds the data string to the TextView "results"
-                            data += "orgType" + orgType;
-                            results.setText(data);
+                            //String[] data = {orgType,startDate,orgAddress};
+
+
+                            //ArrayAdapter<String> adapter = new ArrayAdapter<String>(CalendarActivity.this,
+                                    //R.layout.activity_listview, data);
+
+                            //mcalendarList.setAdapter(adapter);
                         }
                         // Try and catch are included to handle any errors due to JSON
                         catch (JSONException e) {
@@ -96,5 +109,13 @@ public class CalendarActivity extends AppCompatActivity{
         );
         // Adds the JSON array request "arrayreq" to the request queue
         requestQueue.add(arrayreq);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
 }

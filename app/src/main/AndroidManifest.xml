@@ -30,7 +30,9 @@
         <activity android:name=".BuildActivity"
             android:theme="@style/AppTheme.CustomTheme">
         </activity>
-        <activity android:name=".CalendarActivity" />
+        <activity android:name=".CalendarActivity"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
         <activity android:name=".HousingActivity"
             android:theme="@style/AppTheme.CustomTheme">
         </activity>

@@ -73,13 +73,14 @@ public class TorontoActivity extends AppCompatActivity {
                 //TODO insert what to do every 5 seconds
                 population++;
                 treasury+=population*0.74*avgIncomePerDay*incomeTax;
+
                 mpopulationValue.setText(String.valueOf(population));
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,30000); //2000 milliseconds = 2 seconds, can be changed
+                handler.postDelayed(this,5000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,30000); //repeats Handler every 2 seconds
+        handler.postDelayed(updateTreasury,5000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
@@ -96,6 +97,8 @@ public class TorontoActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case buildBtn:
                                 //Opens BuildActivity when the Build option is clicked
+                                Intent intent = new Intent(getApplicationContext(),HousingActivity.class);
+                                intent.putExtra("treasury",treasury);
                                 startActivity(new Intent(TorontoActivity.this,BuildActivity.class));
                                 break;
                             case manageBtn:
@@ -116,9 +119,11 @@ public class TorontoActivity extends AppCompatActivity {
             }
         });
 
-        Intent housingIntent = getIntent();
-        int priceChange = housingIntent.getIntExtra("price",0);
-        treasury -= priceChange;
+        int houseBought = getIntent().getIntExtra("price",0);
+        treasury = getIntent().getFloatExtra("treasury",0)- houseBought;
+        mtreasuryValue.setText(String.valueOf(treasury));
+        Intent intent = new Intent(getApplicationContext(),HousingActivity.class);
+        intent.putExtra("treasury",treasury);
 
         mjsonData = (Button) findViewById(R.id.jsonBtn);
         mjsonData.setOnClickListener(new View.OnClickListener() {
