@@ -22,6 +22,7 @@ public class HousingActivity extends AppCompatActivity{
     Button mTownhouse;
     Button mSemiDetached;
     Button mCondo;
+    public int price = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +37,7 @@ public class HousingActivity extends AppCompatActivity{
         mDetached.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float treasury = getIntent().getFloatExtra("treasury",0);
-                Intent intent = new Intent(getApplicationContext(),TorontoActivity.class);
-                intent.putExtra("price",10000);
-                intent.putExtra("treasury",treasury);
-                startActivity(intent);
-
+                price = price + 10000;
             }
         });
 
@@ -52,6 +48,12 @@ public class HousingActivity extends AppCompatActivity{
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent i = new Intent();
+        i.putExtra("message",)
     }
 
 
