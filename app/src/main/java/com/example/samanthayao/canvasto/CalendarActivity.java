@@ -1,25 +1,44 @@
 package com.example.samanthayao.canvasto;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 
-public class JSONParser extends AppCompatActivity {
+/**
+ * Created by Samantha Yao on 6/2/2017.
+ */
+
+public class CalendarActivity extends AppCompatActivity{
+
+    ListView mcalendarList;
     // Will show the string "data" that holds the results
     TextView results;
     // URL of object to be parsed
-    String JsonURL = "https://raw.githubusercontent.com/ianbar20/JSON-Volley-Tutorial/master/Example-JSON-Files/Example-Array.JSON";
+    String JsonURL = "http://app.toronto.ca/cc_sr_v1_app/data/edc_eventcal_APR?limit=500.json";
     // This string will hold the results
     String data = "";
     // Defining the Volley request queue that handles the URL request concurrently
@@ -28,12 +47,13 @@ public class JSONParser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jsonparser);
+        setContentView(R.layout.activity_calendar);
         // Creates the Volley request queue
         requestQueue = Volley.newRequestQueue(this);
 
         // Casts results into the TextView found within the main layout XML with id jsonData
-        results = (TextView) findViewById(R.id.jsonData);
+        mcalendarList = (ListView) findViewById(R.id.calendarList);
+        final TextView textView = (TextView) findViewById(R.id.textView2);
 
         // Creating the JsonArrayRequest class called arrayreq, passing the required parameters
         //JsonURL is the URL to be fetched from
@@ -46,29 +66,18 @@ public class JSONParser extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
+                            String[] data = new String[response.length()];
+                            //TODO retrieve stuff from the JSON file
                             // Retrieves first JSON object in outer array
-                            JSONObject colorObj = response.getJSONObject(0);
-                            // Retrieves "colorArray" from the JSON object
-                            JSONArray colorArry = colorObj.getJSONArray("colorArray");
-                            // Iterates through the JSON Array getting objects and adding them
-                            //to the list view until there are no more objects in colorArray
-                            for (int i = 0; i < colorArry.length(); i++) {
-                                //gets each JSON object within the JSON array
-                                JSONObject jsonObject = colorArry.getJSONObject(i);
+                            for (int i = 0;i<response.length();i++){
+                                JSONObject event = response.getJSONObject(i);
+                                JSONObject calEvent = event.getJSONObject("calEvent");
 
-                                // Retrieves the string labeled "colorName" and "hexValue",
-                                // and converts them into javascript objects
-                                String color = jsonObject.getString("colorName");
-                                String hex = jsonObject.getString("hexValue");
-
-                                // Adds strings from the current object to the data string
-                                //spacing is included at the end to separate the results from
-                                //one another
-                                data += "Color Number " + (i + 1) + "nColor Name: " + color +
-                                        "nHex Value : " + hex + "nnn";
+                                String eventName = calEvent.getString("eventName");
+                                data[i] = eventName;
+                                textView.setText(eventName);
                             }
-                            // Adds the data string to the TextView "results"
-                            results.setText(data);
+
                         }
                         // Try and catch are included to handle any errors due to JSON
                         catch (JSONException e) {
@@ -89,5 +98,13 @@ public class JSONParser extends AppCompatActivity {
         );
         // Adds the JSON array request "arrayreq" to the request queue
         requestQueue.add(arrayreq);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
-}}
+}

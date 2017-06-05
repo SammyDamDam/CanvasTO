@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class BuildActivity extends AppCompatActivity {
     Button mresBtn;
     Button meduBtn;
     Button mgovBtn;
+    Button mComBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,7 @@ public class BuildActivity extends AppCompatActivity {
         mresBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resIntent = new Intent(BuildActivity.this, HousingActivity.class);
-                BuildActivity.this.startActivity(resIntent);
+                startActivity(new Intent(BuildActivity.this, HousingActivity.class));
             }
         });
 
@@ -39,13 +40,19 @@ public class BuildActivity extends AppCompatActivity {
         meduBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent eduIntent = new Intent(BuildActivity.this, EducationActivity.class);
-                BuildActivity.this.startActivity(eduIntent);
+                startActivity(new Intent(BuildActivity.this, EducationActivity.class));
             }
         });
         mgovBtn = (Button) findViewById(R.id.govBtn);
 
+        mComBtn = (Button) findViewById(R.id.comBtn);
 
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
 
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
 }

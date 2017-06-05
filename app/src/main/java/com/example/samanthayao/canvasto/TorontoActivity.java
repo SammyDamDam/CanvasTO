@@ -36,7 +36,7 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    float treasury = (float) 0.0;
+    float treasury = (float) 1000.0;
     TextView mtreasuryValue;
     private GridView gv;
     Handler handler;
@@ -44,6 +44,7 @@ public class TorontoActivity extends AppCompatActivity {
     float incomeTax = (float) 0.11;
     float avgIncomePerDay = (float) 952/7;
     TextView mpopulationValue;
+    Button mjsonData;
 
 
     //List of the images to put into the GridView
@@ -72,13 +73,14 @@ public class TorontoActivity extends AppCompatActivity {
                 //TODO insert what to do every 5 seconds
                 population++;
                 treasury+=population*0.74*avgIncomePerDay*incomeTax;
+
                 mpopulationValue.setText(String.valueOf(population));
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,1000); //2000 milliseconds = 2 seconds, can be changed
+                handler.postDelayed(this,5000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,1000); //repeats Handler every 2 seconds
+        handler.postDelayed(updateTreasury,5000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
@@ -95,13 +97,16 @@ public class TorontoActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case buildBtn:
                                 //Opens BuildActivity when the Build option is clicked
-                                Intent buildIntent = new Intent(TorontoActivity.this, BuildActivity.class);
-                                TorontoActivity.this.startActivity(buildIntent);
+                                Intent intent = new Intent(getApplicationContext(),HousingActivity.class);
+                                intent.putExtra("treasury",treasury);
+                                startActivity(new Intent(TorontoActivity.this,BuildActivity.class));
                                 break;
                             case manageBtn:
-                                Toast.makeText(TorontoActivity.this, "manage", Toast.LENGTH_LONG);
+                                //ManageActivity has not been created yet
+                                //Toast.makeText(TorontoActivity.this,ManageActivity.class));
                                 break;
                             default:
+                                //idk how to implement the sell stuff
                                 Toast.makeText(TorontoActivity.this, "sell", Toast.LENGTH_LONG);
                                 break;
                         }
@@ -111,6 +116,21 @@ public class TorontoActivity extends AppCompatActivity {
                     ;
                 });
                 options.show();
+            }
+        });
+
+        int houseBought = getIntent().getIntExtra("price",0);
+        treasury = getIntent().getFloatExtra("treasury",0)- houseBought;
+        mtreasuryValue.setText(String.valueOf(treasury));
+        Intent intent = new Intent(getApplicationContext(),HousingActivity.class);
+        intent.putExtra("treasury",treasury);
+
+        mjsonData = (Button) findViewById(R.id.jsonBtn);
+        mjsonData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TorontoActivity.this,CalendarActivity.class);
+                TorontoActivity.this.startActivity(intent);
             }
         });
     }
