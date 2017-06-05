@@ -75,8 +75,11 @@ public class CalendarActivity extends AppCompatActivity{
 
                                 String eventName = calEvent.getString("eventName");
                                 data[i] = eventName;
-                                textView.setText(eventName);
+
                             }
+                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(CalendarActivity.this,R.layout.activity_listview,data);
+                            mcalendarList.setAdapter(adapter);
+
 
                         }
                         // Try and catch are included to handle any errors due to JSON
