@@ -22,6 +22,7 @@ public class HousingActivity extends AppCompatActivity{
     Button mTownhouse;
     Button mSemiDetached;
     Button mCondo;
+    int myVariable;
     public int price = 0;
 
     @Override
@@ -37,7 +38,11 @@ public class HousingActivity extends AppCompatActivity{
         mDetached.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                price = price*0 + 10000;
+                myVariable = myVariable*0 + 10000;
+                Intent intent = new Intent(getApplicationContext(),ConfirmationActivity.class);
+                intent.putExtra("building_cost",myVariable);
+                intent.putExtra("housing_type", "Detached Housing");
+                startActivity(intent);
             }
         });
 
@@ -49,15 +54,4 @@ public class HousingActivity extends AppCompatActivity{
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
-
-    @Override
-    public void onBackPressed(){
-        Intent i = new Intent();
-        i.putExtra("message",price);
-        setResult(RESULT_OK);
-        finish();
-    }
-
-
-
 }

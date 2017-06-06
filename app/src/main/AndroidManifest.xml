@@ -39,6 +39,9 @@
         <activity android:name=".EducationActivity"
             android:theme="@style/AppTheme.CustomTheme">
         </activity>
+        <activity android:name=".ConfirmationActivity"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
     </application>
 
 </manifest>

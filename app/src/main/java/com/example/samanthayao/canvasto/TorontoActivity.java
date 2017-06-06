@@ -36,7 +36,7 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 public class TorontoActivity extends AppCompatActivity {
 
-    float treasury = (float) 1000.0;
+    public static float treasury = (float) 1000.0;
     TextView mtreasuryValue;
     private GridView gv;
     Handler handler;
@@ -127,13 +127,6 @@ public class TorontoActivity extends AppCompatActivity {
                 TorontoActivity.this.startActivity(intent);
             }
         });
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == 999 && resultCode == RESULT_OK){
-            treasury = treasury - data.getLongExtra("message",0);
-            mtreasuryValue.setText(String.valueOf(treasury));
-        }
     }
 }
 
