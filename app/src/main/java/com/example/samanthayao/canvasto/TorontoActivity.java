@@ -133,7 +133,8 @@ public class TorontoActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 999 && resultCode == RESULT_OK){
-
+            treasury = treasury - data.getLongExtra("message",0);
+            mtreasuryValue.setText(String.valueOf(treasury));
         }
     }
 }

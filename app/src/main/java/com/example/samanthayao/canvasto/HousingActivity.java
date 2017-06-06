@@ -37,7 +37,7 @@ public class HousingActivity extends AppCompatActivity{
         mDetached.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                price = price + 10000;
+                price = price*0 + 10000;
             }
         });
 
@@ -53,7 +53,9 @@ public class HousingActivity extends AppCompatActivity{
     @Override
     public void onBackPressed(){
         Intent i = new Intent();
-        i.putExtra("message",)
+        i.putExtra("message",price);
+        setResult(RESULT_OK);
+        finish();
     }
 
 
