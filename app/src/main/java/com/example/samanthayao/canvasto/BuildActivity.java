@@ -32,7 +32,7 @@ public class BuildActivity extends AppCompatActivity {
         mresBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BuildActivity.this, HousingActivity.class));
+                startActivityForResult(new Intent(getApplicationContext(), HousingActivity.class),999);
             }
         });
 

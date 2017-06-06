@@ -97,8 +97,6 @@ public class TorontoActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case buildBtn:
                                 //Opens BuildActivity when the Build option is clicked
-
-                                startActivityForResult(new Intent(getApplicationContext(), HousingActivity.class),999);
                                 startActivity(new Intent(TorontoActivity.this,BuildActivity.class));
                                 break;
                             case manageBtn:
