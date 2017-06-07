@@ -22,7 +22,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-    //create the table that stores information
+    //create a new table that stores information
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + TABLE_PRODUCTS + "(" +
@@ -32,9 +32,27 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    //upgrade db version
+    //upgrade db version or make new table
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS" + TABLE_PRODUCTS);
+        onCreate(db);
+    }
+
+    //add new row to db
+    public void addProduct(Product product) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ID, product.get_username());
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_PRODUCTS, null, values);
+        db.close();
+    }
+
+    //delete from db
+    public void deleteProduct(String productName) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCTNAME + "=\"" + productName + "\";");
 
     }
+
 }

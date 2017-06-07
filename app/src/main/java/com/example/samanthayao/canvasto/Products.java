@@ -13,8 +13,9 @@ public class Products {
 
     }
 
-    public Products(String productname) {
+    public Products(String productname, String username) {
         this._productname = productname;
+        this._username = username;
     }
     //setters to give user object an id and/or productname
     public void set_username(String _username) {
