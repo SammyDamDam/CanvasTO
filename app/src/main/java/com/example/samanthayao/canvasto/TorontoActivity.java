@@ -32,6 +32,9 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 /**
  * Created by Samantha Yao on 5/10/2017.
+ * Main Activity of CanvasTO
+ * displays the main screen with 5x5 grid and updates economy/population every 2 seconds
+ * displays options for each plot of land
  */
 
 public class TorontoActivity extends AppCompatActivity {
@@ -70,22 +73,22 @@ public class TorontoActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-                //TODO insert what to do every 5 seconds
+                //insert what to do every 2 seconds
                 population++;
                 treasury+=population*0.74*avgIncomePerDay*incomeTax;
 
                 mpopulationValue.setText(String.valueOf(population));
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,60000); //2000 milliseconds = 2 seconds, can be changed
+                handler.postDelayed(this,2000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,60000); //repeats Handler every 2 seconds
+        handler.postDelayed(updateTreasury,2000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
 
-        //TODO code what happens when items on the GridView are clicked
+        //code what happens when items on the GridView are clicked
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {

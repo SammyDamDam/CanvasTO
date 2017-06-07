@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Samantha Yao on 5/25/2017.
+ * Adapter class to add images to a GridView
  */
 
 public class GridViewAdapter extends BaseAdapter{
