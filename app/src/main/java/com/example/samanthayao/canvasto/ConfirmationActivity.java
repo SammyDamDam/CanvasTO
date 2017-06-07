@@ -26,21 +26,21 @@ public class ConfirmationActivity extends AppCompatActivity {
         final long price = getIntent().getIntExtra("building_cost",-1);
         String type = getIntent().getStringExtra("housing_type");
 
-        TextView txtLabel = (TextView)findViewById(R.id.confirmation_text);
+        final TextView txtLabel = (TextView)findViewById(R.id.confirmation_text);
         txtLabel.setText("You are purchasing " + type + " for " + price + " dollars. Will you proceed with the transaction?");
 
         mYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TorontoActivity.treasury = TorontoActivity.treasury - price;
-                //Somehow get this pop up to close without resetting all the values.
+                txtLabel.setText("Click anywhere outside to return to your city");
             }
         });
 
         mNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //program the page to get back to TorontoActivity without resetting everything
+                txtLabel.setText("Click anywhere outside to returnto your city.")
             }
         })
 
