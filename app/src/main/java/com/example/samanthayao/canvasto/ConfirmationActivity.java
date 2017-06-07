@@ -40,9 +40,9 @@ public class ConfirmationActivity extends AppCompatActivity {
         mNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtLabel.setText("Click anywhere outside to returnto your city.")
+                txtLabel.setText("Click anywhere outside to returnto your city.");
             }
-        })
+        });
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

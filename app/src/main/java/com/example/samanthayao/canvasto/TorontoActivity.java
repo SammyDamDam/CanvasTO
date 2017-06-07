@@ -76,11 +76,11 @@ public class TorontoActivity extends AppCompatActivity {
 
                 mpopulationValue.setText(String.valueOf(population));
                 mtreasuryValue.setText(String.valueOf(treasury));
-                handler.postDelayed(this,5000); //2000 milliseconds = 2 seconds, can be changed
+                handler.postDelayed(this,60000); //2000 milliseconds = 2 seconds, can be changed
             }
         };
 
-        handler.postDelayed(updateTreasury,5000); //repeats Handler every 2 seconds
+        handler.postDelayed(updateTreasury,60000); //repeats Handler every 2 seconds
 
         gv = (GridView) findViewById(R.id.gv);
         gv.setAdapter(new GridViewAdapter(this,imageIDs));
