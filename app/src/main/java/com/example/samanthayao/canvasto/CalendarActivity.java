@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Samantha Yao on 6/2/2017.
+ * Parses JSON data and displays it in a ListView
  */
 
 public class CalendarActivity extends AppCompatActivity{
@@ -68,7 +69,7 @@ public class CalendarActivity extends AppCompatActivity{
                         try {
                             String[] data = new String[response.length()];
                             //TODO retrieve stuff from the JSON file
-                            // Retrieves first JSON object in outer array
+                            // Retrieves data from JSON Object 'eventName' for all events
                             for (int i = 0;i<response.length();i++){
                                 JSONObject event = response.getJSONObject(i);
                                 JSONObject calEvent = event.getJSONObject("calEvent");

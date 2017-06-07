@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 
 /**
  * Created by Samantha Yao on 5/29/2017.
+ * Screen to display buttons to purchase various buildings from the Education category.
  */
 
 public class EducationActivity extends AppCompatActivity {

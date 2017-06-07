@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 /**
  * Created by 2 on 6/5/2017.
+ * To confirm whether or not the user wishes to do something e.g. buy a house
  */
 
 public class ConfirmationActivity extends AppCompatActivity {
@@ -44,12 +45,13 @@ public class ConfirmationActivity extends AppCompatActivity {
             }
         });
 
+        //changes screen size
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.6),(int)(height*0.45));
+        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
 }

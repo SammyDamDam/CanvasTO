@@ -15,6 +15,7 @@ import static com.example.samanthayao.canvasto.R.id.manageBtn;
 
 /**
  * Created by wenwi on 5/29/2017.
+ * Screen of buttons to purchase different types of houses
  */
 
 public class HousingActivity extends AppCompatActivity{
